@@ -75,3 +75,9 @@ def parse_float(_in):
 
 def printmd(md):
     display(Markdown(md))
+
+
+def parse_name_and_num(path):
+    name = re.findall(r"^[^_]+", path)[0]
+    num = re.findall(r"(?<=_)(\d*)(?=_)", path)[0]
+    return name, num

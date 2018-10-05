@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submission</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         {{ css }}
     </style>
 </head>
 <body>
+<h1 style="text-align: center">{{ name }}</h1>
+<hr/>
 <div style="float:left; width:55%; overflow:hidden; border-right: 1px solid black; margin-left: 1%; margin-right: 2.5%;">
-    <h1>Submission</h1>
+    <h2>Submission</h2>
+    <hr/>
     {% for (file, code, output) in files %}
-        <h2>{{ file }}</h2>
+        <h3>{{ file }}</h3>
         <h4>Code</h4>
         {{ code }}
         <h4>Output</h4>
@@ -23,9 +27,9 @@
         <hr/>
     {% endfor %}
 </div>
-<form method="post" action="/feedback/" style="overflow:hidden;">
-    {{ "".join(request.form.items()) }}
-    <h1>Marking</h1>
+<form action={{ url_for("show_feedback", name=name) }} method=POST style="overflow:hidden;">
+    <h2>Marking</h2>
+    <hr/>
     {% for label, q in  assignment.questions.items() %}
         <h4>{{ label }}</h4>
         {% for part in q.contents %}

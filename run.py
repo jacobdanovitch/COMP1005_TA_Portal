@@ -1,8 +1,12 @@
 import os
+import tempfile
+from pathlib import Path
+from itertools import chain
+from zipfile import ZipFile as _zip
+
 from flask import Flask, request, redirect, url_for, render_template, Markup
 from werkzeug.utils import secure_filename
 
-from pathlib import Path
 from pexpect.popen_spawn import PopenSpawn
 
 from pygments import highlight, lexer, format
@@ -10,13 +14,11 @@ from pygments.lexers.python import Python3Lexer
 from pygments.lexers.shell import BashLexer
 from pygments.formatters.html import HtmlFormatter
 
-from itertools import chain
-
 import utils
 from Assignment import *
 
 UPLOAD_FOLDER = '/tmp/'
-ALLOWED_EXTENSIONS = {"py"}
+ALLOWED_EXTENSIONS = {"zip"}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -29,49 +31,34 @@ def allowed_file(filename):
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        for file in request.files.getlist("file"):
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return redirect(url_for("marking"))
-
     return render_template("base.html")
 
 
-@app.route('/files')
-def list_files():
-    """Endpoint to list files on the server."""
-    files = []
+@app.route("/process_upload", methods=["POST"])
+def process_upload():
+    if request.method == 'POST':
+        errors = []
+        for file in request.files.getlist("file"):
+            successful_unzip, message = process_zip(file)
+            if not successful_unzip:
+                errors.append(message)
 
-    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
-        path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        if os.path.isfile(path):
-            files.append(filename)
-    return "".join(files)
+            if errors:
+                return "\n\n".join(errors)
+
+            name, num = parse_name_and_num(file.filename)
+            return redirect(url_for("marking", name=name))
 
 
-@app.route("/marking/", methods=["GET"])
+@app.route("/marking", methods=["GET", "POST"])
 def marking():
-    scripts = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if ".py" in f]
-    files = []
+    name = request.args["name"]
+    return render_template("marking.html", name=name, files=execute_files(name), css=HtmlFormatter().get_style_defs(),
+                           assignment=Assignment())
 
-    for f in scripts:
-        fname = f"{app.config['UPLOAD_FOLDER']}{f}"
-        with open(fname, "r") as py:
-            code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
-            outputs = []
 
-            for test in TEST_CASES[f]:
-                out = Markup(highlight(run_file(fname, test), BashLexer(), HtmlFormatter()))
-                outputs.append(out)
-
-            files.append((f, code, outputs))
-
-    return render_template("marking.html", files=files, css=HtmlFormatter().get_style_defs(), assignment=Assignment())
-
-@app.route("/feedback/", methods=["POST"])
-def show_feedback():
+@app.route("/feedback/<name>", methods=["POST"])
+def show_feedback(name):
     if request.method == "POST":
         a = Assignment()
 
@@ -84,14 +71,42 @@ def show_feedback():
 
         grade = sum(data)
         data.append(grade)
-        pct = grade/a.total*100
+        pct = grade / a.total * 100
 
         questions.append(f"/{a.total} Total ({pct:.2f}%)")
 
-        return render_template("feedback.html", data=dict(zip(questions, data)), remarks="Nice job! " if pct > 80 else "")
+        return render_template("feedback.html", data=dict(zip(questions, data)), name=name,
+                               remarks="Nice job! " if pct > 80 else "")
     return "failure"
 
 
+def process_zip(file):
+    if not allowed_file(file.filename):
+        return False, f"Invalid file extension for file: {file.filename}."
+    zipped = _zip(file)
+
+    to_upload = []
+    for z in zipped.filelist:
+        if z and ".py" in z.filename:
+            if z.filename not in TEST_CASES:
+                return False, f"Invalid file name {z.filename}. Please check that the student has appropriately named the files."
+
+            filename = secure_filename(z.filename)
+            to_upload.append(filename)
+
+    if to_upload:
+        name, num = parse_name_and_num(file.filename)
+        path = os.path.join(app.config['UPLOAD_FOLDER'], name)
+        zipped.extractall(path=path, members=to_upload)
+    else:
+        return False, "No valid files to upload."
+
+    return True, ""
+
+@app.route("/files", methods=["GET"])
+def list_files():
+    # os.remove(app.config['UPLOAD_FOLDER'])
+    return str(os.listdir(app.config['UPLOAD_FOLDER']))
 
 def run_file(f, test):
     p = PopenSpawn(f"python {f}")
@@ -100,8 +115,31 @@ def run_file(f, test):
     else:
         p.send(test)
     p.sendeof()
-    return p.read().decode('utf-8')
+
+    out = p.read().decode('utf-8')
+    if not out:
+        return f"No output received from file {f}."
+
+    return out
 
 
+def execute_files(file_dir):
+    files = []
+    for file in os.listdir(os.path.join(app.config['UPLOAD_FOLDER'], file_dir)):
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file_dir, file)
+        with open(filepath, "r") as py:
+            code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
+        outputs = []
+
+        for test in TEST_CASES[file]:
+            out = Markup(highlight(run_file(filepath, test), BashLexer(), HtmlFormatter()))
+            outputs.append(out)
+
+        files.append((file, code, outputs))
+
+    return files
+
+
+# DELET
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
