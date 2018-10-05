@@ -11,7 +11,7 @@ from IPython.display import Markdown, display
 ### CONFIG
 
 EXCLUDED = [".ipynb_checkpoints", "soln", "Assignment Marking.ipynb"]
-SOLN_DIR = "./"
+SOLN_DIR = "."
 MARKING_SCHEME = f"{SOLN_DIR}/marking.txt"
 
 ASSIGNMENT_NUM = 1
