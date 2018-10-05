@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        {{ css }}
+    </style>
+</head>
+<body>
+<div style="float:left; width:55%; overflow:hidden; border-right: 1px solid black; margin-left: 1%; margin-right: 2.5%;">
+    <h1>Submission</h1>
+    {% for (file, code, output) in files %}
+        <h2>{{ file }}</h2>
+        <h4>Code</h4>
+        {{ code }}
+        <h4>Output</h4>
+        {% for o in output %}
+            {{ o }}
+        {% endfor %}
+        <hr/>
+    {% endfor %}
+</div>
+<form method="post" action="/feedback/" style="overflow:hidden;">
+    {{ "".join(request.form.items()) }}
+    <h1>Marking</h1>
+    {% for label, q in  assignment.questions.items() %}
+        <h4>{{ label }}</h4>
+        {% for part in q.contents %}
+            <p>
+                <label>{{ part }}</label><br/>
+                <input name={{ "{}-{}".format(label, loop.index0) }} placeholder="Mark..."/>
+            </p>
+        {% endfor %}
+        <hr/>
+    {% endfor %}
+    <br/> <br/>
+    <input type="submit" name="submit" value="Create Feedback"/>
+</form>
+</body>
+</html>
