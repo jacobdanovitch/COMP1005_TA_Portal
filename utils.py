@@ -12,7 +12,7 @@ from IPython.display import Markdown, display
 
 EXCLUDED = [".ipynb_checkpoints", "soln", "Assignment Marking.ipynb"]
 SOLN_DIR = "."
-MARKING_SCHEME = f"{SOLN_DIR}/marking.txt"
+MARKING_SCHEME = f"marking.txt"
 
 ASSIGNMENT_NUM = 1
 
