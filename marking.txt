@@ -1,27 +1,27 @@
 Problem 1: [/3]
-/1 mark - get the user's input (must also convert to a float, give 0.5 if they convert to an int)
+/1 mark - get the user's input (must convert to float)
 /1 mark - Calculation is done correctly.
-/1 mark - Output is done correctly and well labelled (ie, not just print(result))
+/1 mark - Output is done correctly and well labelled
 
-Problem 2: [/2] - same as above, but condensed in grades a bit...
-/1 mark - correct calculation (and necessary conversion, again, give 0.5 if they convert to an int)
+Problem 2: [/2]
+/1 mark - correct calculation (and necessary conversion)
 /1 mark - correct input,  and well labelled output
 
 Problem 3: [/11]
 /2 marks - Get user's grades for all 8 items (prompt includes the maximum value, inputs stored in separate variables, converted to numbers)
 /2 marks - Correctly calculate percentages for each item (each item should use the correct max, result stored in new variables or the same is fine)
-/2 marks - Correctly calculate the weighted totals (should be *.08 instead of *8, this step may be merged into the final grade calculation)
-/2 marks - Correctly calculate the final grade (sum the weighted totals)
-/2 marks - Well-formated display of the percentage grade of each work item. (Should be well-aligned... though slightly off is fine, so long as there was an effort made. Grades must be displayed as percentages (out of 100) with the % and a precision of 2 decimal places. 
-/1 mark - Final grade is displayed (as percentage, etc...)
+/2 marks - Correctly calculate the weighted totals
+/2 marks - Correctly calculate the final grade
+/2 marks - Well-formated display of the percentage grade of each work item.
+/1 mark - Final grade is displayed
 
 Problem 4: [/4]
-/2 marks - Secret number is correctly generated (.5 for import random, 1 for using a random function like randint, .5 for the correct range)
+/2 marks - Secret number is correctly generated
 /1 mark - Ask for the user's guess
-/1 mark - Calculate and report how close the user was (-.5 if they didn't use abs or Math.fabs)
+/1 mark - Calculate and report how close the user was
 
 Bonus:  [/1]
-/1 mark - Display a congratulatory message if and only if the user's guess was correct! (note: if a student gets 100% + the bonus, they get only 100%).
+/1 mark - Display a congratulatory message if and only if the user's guess was correct!
 
 Documentation: [/5]
 /1 mark - student name and # at the top of each file
