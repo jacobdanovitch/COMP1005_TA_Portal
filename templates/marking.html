@@ -35,7 +35,7 @@
         {% for part in q.contents %}
             <p>
                 <label>{{ part }}</label><br/>
-                <input name={{ "{}-{}".format(label, loop.index0) }} placeholder="Mark..."/>
+                <input type="number" step=0.1 name={{ "{}-{}".format(label, loop.index0) }} placeholder="Mark..."/>
             </p>
         {% endfor %}
         <hr/>

@@ -53,7 +53,7 @@ def process_upload():
 @app.route("/marking", methods=["GET", "POST"])
 def marking():
     name = request.args["name"]
-    return render_template("marking.html", name=name, files=execute_files(name), css=HtmlFormatter().get_style_defs(),
+    return render_template("marking.html", name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "), files=execute_files(name), css=HtmlFormatter().get_style_defs(),
                            assignment=Assignment())
 
 
@@ -62,7 +62,7 @@ def show_feedback(name):
     if request.method == "POST":
         a = Assignment()
 
-        data = [float(x[1]) if x[1].isnumeric() else 0 for x in request.values.items() if x[1] != "Create Feedback"]
+        data = [float(x[1]) if x[1] else 0 for x in request.values.items() if x[1] != "Create Feedback"]
 
         questions = [q.contents for _, q in a.questions.items()]
         questions = list(chain.from_iterable(questions))

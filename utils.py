@@ -11,8 +11,8 @@ from IPython.display import Markdown, display
 ### CONFIG
 
 EXCLUDED = [".ipynb_checkpoints", "soln", "Assignment Marking.ipynb"]
-SOLN_DIR = "./COMP1005_TA_Portal/"
-MARKING_SCHEME = f"{SOLN_DIR}marking.txt"
+SOLN_DIR = "./" if os.environ.get("FLASK_ENV") == "development" else "./COMP1005_TA_Portal/"
+MARKING_SCHEME = os.path.join(SOLN_DIR, "marking.txt")
 
 ASSIGNMENT_NUM = 1
 
