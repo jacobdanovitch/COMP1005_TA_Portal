@@ -16,10 +16,12 @@ cd COMP1005_TA_Portal
 pip install -r requirements.txt
 ```
 
-To run in development mode on Windows:
-```bash
-set FLASK_APP=run.py
-set FLASK_ENV=development
-flask run
+To run on Windows:
+```cmd
+run.bat
 ```
-Use "export" in place of "set" on Linux.
+
+To run on Linux:
+```bash
+./run.sh
+```

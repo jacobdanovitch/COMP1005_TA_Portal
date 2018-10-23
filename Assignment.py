@@ -6,6 +6,9 @@ class Assignment:
     def __init__(self):
         self.questions, self.total = self.parse(MARKING_SCHEME)
 
+        self.marked_by = MARKED_BY
+        self.email = EMAIL
+
     def __str__(self):
         return f"ASSIGNMENT {ASSIGNMENT_NUM}\n\n" + "\n\n".join([str(q) for q in self.questions])
 
@@ -15,9 +18,8 @@ class Assignment:
     @staticmethod
     def parse(txt):
         questions = {}
-        data = None
 
-        with open(MARKING_SCHEME, "r") as f:
+        with open(txt, "r") as f:
             data = f.read()
 
         total = re.findall(r"Total: \[\/(\d+)\]", data)

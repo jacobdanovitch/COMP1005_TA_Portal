@@ -1,67 +1,11 @@
-import os
 from sys import exit
-from zipfile import ZipFile as _zip
-from glob import glob, iglob
-import shutil
-from pathlib import Path
 import re
 from IPython.display import Markdown, display
 
+from pexpect.popen_spawn import PopenSpawn
 
-### CONFIG
+from configs.config import MARKING_SCHEME, EMAIL, TEST_CASES, ASSIGNMENT_NUM, MARKED_BY
 
-EXCLUDED = [".ipynb_checkpoints", "soln", "Assignment Marking.ipynb"]
-SOLN_DIR = "./" if os.environ.get("FLASK_ENV") == "development" else "./COMP1005_TA_Portal/"
-MARKING_SCHEME = os.path.join(SOLN_DIR, "marking.txt")
-
-ASSIGNMENT_NUM = 1
-
-NAME = "Jacob Danovitch"
-
-first, last = NAME.split()
-EMAIL = f"{first}.{last}@carleton.ca".lower()
-
-TEST_CASES = {
-    "a1_p1.py": ["-4", "15", "26.5"],
-    "a1_p2.py": ["-4", "15", "26.5"],
-    "a1_p3.py": [["14", "19", "20", "20", "27", "9", "30", "45"]],
-    "a1_p4.py": ["25", "-25"]
-}
-
-
-###
-
-
-### Util functions
-
-def extract_subdirs():
-    for d in glob('./**/', recursive=True):
-        parts = Path(d).parts
-
-        if len(parts) > 1 and "_MACOSX" not in d:
-            for f in os.listdir(path=d):
-                source = Path(d + f)
-                target = Path("".join(list(parts)[:-1]) + f"/{f}")
-                shutil.move(source, target)
-
-
-def recursive_unzip(dr):
-    for filename in iglob(dr, recursive=True):
-        DEST_PATH = os.path.dirname(filename)
-
-        _zip(filename).extractall(path=DEST_PATH)
-        os.remove(filename)
-
-
-def get_first_unmarked():
-    for directory in os.listdir():
-        if directory not in EXCLUDED:
-            assignment_path = f"./{directory}/"
-            feedback_file = re.search(r"feedback.*", ", ".join(os.listdir(path=assignment_path)))
-
-            if not bool(feedback_file):
-                return Path(directory)
-    return False
 
 def parse_float(_in):
     if _in.lower() in ["q", "quit", "exit"]:
@@ -73,11 +17,27 @@ def parse_float(_in):
         return _in, False
 
 
-def printmd(md):
-    display(Markdown(md))
+def run_file(f, test):
+    p = PopenSpawn(f"python {f}")
+    if type(test) == type([]):
+        p.send("\n".join(test))
+    else:
+        p.send(test)
+    p.sendeof()
 
+    out = p.read().decode('utf-8')
+    if not out:
+        return f"No output received from file {f}."
+
+    return out
 
 def parse_name_and_num(path):
-    name = re.findall(r"^[^_]+", path)[0]
-    num = re.findall(r"(?<=_)(\d*)(?=_)", path)[0]
-    return name, num
+    try:
+        # name = re.findall(r"^[^_]+", path)[0]
+        # num = re.findall(r"(?<=_)(\d*)(?=_)", path)[0]
+        s = path.split("_")
+        name = " ".join(s[:2])
+        num = None
+        return name, num
+    except IndexError as e:
+        raise IndexError(f"Invalid name and num for {path}.").with_traceback(e.__traceback__)

@@ -1,0 +1,15 @@
+#submission{
+    float: left;
+    overflow: hidden;
+    width: 55%;
+}
+
+#marking {
+    /*
+    width: 272px !important;
+    height: 262.639px !important;
+    left: 1108.11px;
+    */
+    width: 45%;
+    float:right;
+}

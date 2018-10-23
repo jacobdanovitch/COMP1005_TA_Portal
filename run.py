@@ -7,14 +7,12 @@ from zipfile import ZipFile as _zip
 from flask import Flask, request, redirect, url_for, render_template, Markup
 from werkzeug.utils import secure_filename
 
-from pexpect.popen_spawn import PopenSpawn
-
 from pygments import highlight, lexer, format
 from pygments.lexers.python import Python3Lexer
 from pygments.lexers.shell import BashLexer
 from pygments.formatters.html import HtmlFormatter
 
-import utils
+from utils import *
 from Assignment import *
 
 UPLOAD_FOLDER = '/tmp/'
@@ -53,7 +51,8 @@ def process_upload():
 @app.route("/marking", methods=["GET", "POST"])
 def marking():
     name = request.args["name"]
-    return render_template("marking.html", name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "), files=execute_files(name), css=HtmlFormatter().get_style_defs(),
+    return render_template("marking.html", name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
+                           files=execute_files(name), css=HtmlFormatter().get_style_defs(),
                            assignment=Assignment())
 
 
@@ -75,7 +74,8 @@ def show_feedback(name):
 
         questions.append(f"/{a.total} Total ({pct:.2f}%)")
 
-        return render_template("feedback.html", data=dict(zip(questions, data)), name=name,
+        return render_template("feedback.html", marked_by=a.marked_by, email=a.email, data=dict(zip(questions, data)),
+                               name=name,
                                remarks="Nice job! " if pct > 80 else "")
     return "failure"
 
@@ -88,8 +88,14 @@ def process_zip(file):
     to_upload = []
     for z in zipped.filelist:
         if z and ".py" in z.filename:
-            if z.filename not in TEST_CASES:
-                return False, f"Invalid file name {z.filename}. Please check that the student has appropriately named the files."
+            f = Path(z.filename)
+            name = f.stem
+
+            if f.parent.name:  # Ignore if the file is in a subdiretory like MACOSX
+                continue
+
+            if name not in TEST_CASES:
+                return False, f"Invalid file name {f.parent.name}. Please check that the student has appropriately named the files."
 
             filename = secure_filename(z.filename)
             to_upload.append(filename)
@@ -103,24 +109,12 @@ def process_zip(file):
 
     return True, ""
 
+
 @app.route("/files", methods=["GET"])
 def list_files():
-    # os.remove(app.config['UPLOAD_FOLDER'])
-    return str(os.listdir(app.config['UPLOAD_FOLDER']))
-
-def run_file(f, test):
-    p = PopenSpawn(f"python {f}")
-    if type(test) == type([]):
-        p.send("\n".join(test))
-    else:
-        p.send(test)
-    p.sendeof()
-
-    out = p.read().decode('utf-8')
-    if not out:
-        return f"No output received from file {f}."
-
-    return out
+    if os.environ.get("FLASK_ENV") == "development":
+        return str(os.listdir(app.config['UPLOAD_FOLDER']))
+    return "access denied"
 
 
 def execute_files(file_dir):
@@ -131,12 +125,11 @@ def execute_files(file_dir):
             code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
         outputs = []
 
-        for test in TEST_CASES[file]:
+        for test in TEST_CASES[file.replace(".py", "")]:
             out = Markup(highlight(run_file(filepath, test), BashLexer(), HtmlFormatter()))
             outputs.append(out)
 
         files.append((file, code, outputs))
-
     return files
 
 

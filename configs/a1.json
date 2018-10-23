@@ -1,0 +1,37 @@
+{
+  "assignment_num": 1,
+  "excluded": [
+    ".ipynb_checkpoints",
+    "soln",
+    "Assignment Marking.ipynb"
+  ],
+  "marked_by": "Jacob Danovitch",
+  "test_cases": {
+    "a1_p1": [
+      "-4",
+      "15",
+      "26.5"
+    ],
+    "a1_p2": [
+      "-4",
+      "15",
+      "26.5"
+    ],
+    "a1_p3": [
+      [
+        "14",
+        "19",
+        "20",
+        "20",
+        "27",
+        "9",
+        "30",
+        "45"
+      ]
+    ],
+    "a1_p4": [
+      "25",
+      "-25"
+    ]
+  }
+}
