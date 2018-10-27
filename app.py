@@ -1,5 +1,6 @@
 from itertools import chain
-from flask import Flask, request, redirect, url_for, render_template, flash
+from flask import Flask, request, redirect, url_for, render_template, flash, session
+from base64 import b64encode
 
 from utils import *
 from Assignment import *
@@ -29,34 +30,27 @@ def process_upload():
         if not uploads:
             flash("No file selected.")
             return redirect(url_for("index"))
-        errors = []
-        for file in uploads:
-            name, num = parse_name_and_num(file.filename)
-            path = FROM_UPLOADS(name.replace(" ", "-"))
 
-            successful_unzip, message = process_zip(file, path)
-            if not successful_unzip:
-                errors.append(message)
+        file = uploads[0]
 
-            if errors:
-                return "\n\n".join(errors)
+        name, num = parse_name_and_num(file.filename)
+        successful_unzip, message = process_zip(file, FROM_UPLOADS(name.replace(" ", "-")))
+        if not successful_unzip:
+            return message
 
-            return redirect(url_for("marking", name=name))
+        return redirect(url_for("marking", name=name))
 
 
 @app.route("/marking", methods=["GET", "POST"])
 def marking():
     name = request.args["name"]
-    file_dir = FROM_UPLOADS(name.replace(" ", "-"))
-    try:
-        file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
-        exec_files = execute_files(file_list)
-    except Exception as e:
-        return f"No python files found at {file_dir}. Found: {glob(os.getcwd()+'/*', recursive=True)}\n{e.with_traceback(e.__traceback__)}"
 
+    file_dir = FROM_UPLOADS(name.replace(" ", "-"))
+    file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
+    out = execute_files(file_list)
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
-                           files=exec_files,
+                           files=out,
                            css=HtmlFormatter().get_style_defs(),
                            assignment=Assignment(MARKING_SCHEME))
 

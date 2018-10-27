@@ -1,3 +1,4 @@
+import json
 import os
 from sys import exit, stderr
 from pygments import highlight, lexer, format
@@ -13,6 +14,7 @@ from subprocess import run, PIPE
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {"zip"}
+
 
 def log(msg):
     print(str(msg), file=stderr)
@@ -72,7 +74,7 @@ def parse_name_and_num(path):
         s = path.split("_")
         log(s)
         name = " ".join(s[:2])
-        num = None # re.search(r"", s[1]).group()
+        num = None  # re.search(r"", s[1]).group()
         return name, num
     except IndexError as e:
         raise IndexError(f"Invalid name and num for {path}.").with_traceback(e.__traceback__)
@@ -80,6 +82,7 @@ def parse_name_and_num(path):
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 def process_zip(file, file_dir):
     if not allowed_file(file.filename):

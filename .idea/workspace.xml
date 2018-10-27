@@ -6,7 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Procfile.windows" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions/a2/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/solutions/a2/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +39,7 @@
           <entry key="html" value="1194" />
           <entry key="js" value="105" />
           <entry key="json" value="53" />
-          <entry key="py" value="3302" />
+          <entry key="py" value="3850" />
           <entry key="sh" value="3" />
           <entry key="txt" value="10" />
         </counts>
@@ -47,7 +51,7 @@
           <entry key="JSON" value="53" />
           <entry key="JavaScript" value="105" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="3335" />
+          <entry key="Python" value="3883" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,8 +82,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="52" column="45" lean-forward="true" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+            <state relative-caret-position="303">
+              <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
               <folding>
                 <element signature="e#1#28#0" expanded="true" />
               </folding>
@@ -90,15 +94,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-230">
-              <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+            <state relative-caret-position="218">
+              <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#550#685#0" />
+                <element signature="e#715#1114#0" />
                 <element signature="e#1907#2241#0" />
-                <element signature="e#2273#2356#0" />
-                <element signature="e#2270#3308#0" />
-                <marker date="1540609671563" expanded="true" signature="553:587" ph="..." />
+                <marker date="1540611700160" expanded="true" signature="566:600" ph="..." />
               </folding>
             </state>
           </provider>
@@ -107,9 +110,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/marking.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="-444">
               <caret line="19" column="14" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="14" />
               <folding>
+                <element signature="n#script#3;n#head#0;n#html#0;n#!!top" />
                 <element signature="n#script#0;n#html#0;n#!!top" />
               </folding>
             </state>
@@ -158,8 +162,8 @@
       <find>allowed_</find>
       <find>process_file</find>
       <find>execute</find>
-      <find>css</find>
       <find>process_zip</find>
+      <find>css</find>
       <find>extractall</find>
     </findStrings>
   </component>
@@ -328,6 +332,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1435" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49642006" visible="true" weight="0.13633068" />
       <window_info id="Structure" order="1" sideWeight="0.50358" side_tool="true" weight="0.25670776" />
@@ -498,9 +503,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/marking.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="-444">
           <caret line="19" column="14" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="14" />
           <folding>
+            <element signature="n#script#3;n#head#0;n#html#0;n#!!top" />
             <element signature="n#script#0;n#html#0;n#!!top" />
           </folding>
         </state>
@@ -508,23 +514,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+        <state relative-caret-position="218">
+          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
             <element signature="e#550#685#0" />
+            <element signature="e#715#1114#0" />
             <element signature="e#1907#2241#0" />
-            <element signature="e#2273#2356#0" />
-            <element signature="e#2270#3308#0" />
-            <marker date="1540609671563" expanded="true" signature="553:587" ph="..." />
+            <marker date="1540611700160" expanded="true" signature="566:600" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="52" column="45" lean-forward="true" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+        <state relative-caret-position="303">
+          <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
           <folding>
             <element signature="e#1#28#0" expanded="true" />
           </folding>
