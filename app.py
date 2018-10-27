@@ -138,7 +138,7 @@ def process_zip(file):
 def list_files():
     if os.environ.get("FLASK_ENV") == "development" or True:
         path = os.path.join(app.config['UPLOAD_FOLDER'])
-        files = glob(path, recursive=True)
+        files = os.listdir(path)# glob(path, recursive=True)
         log(files)
         return str(path)
     return "access denied"
