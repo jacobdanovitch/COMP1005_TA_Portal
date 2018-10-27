@@ -31,14 +31,6 @@ def parse_float(_in):
 
 def run_file(f, test):
     log(f)
-    """
-    p = PopenSpawn(f"python {f}")
-    
-        p.send("\n".join(test))
-    else:
-        p.send(test)
-    p.sendeof()
-    """
     if isinstance(test, list):
         test = "\n".join(test)
 
