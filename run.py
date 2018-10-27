@@ -105,6 +105,9 @@ def process_zip(file):
         return False, f"Invalid file extension for file: {file.filename}."
     zipped = _zip(file)
 
+    if not zipped.filelist:
+        return False, "File list is empty."
+
     to_upload = []
     for z in zipped.filelist:
         if z and ".py" in z.filename:
@@ -115,7 +118,7 @@ def process_zip(file):
                 continue
 
             if name not in TEST_CASES:
-                return False, f"Invalid file name {f.parent.name}. Please check that the student has appropriately named the files."
+                return False, f"Invalid file name {z.filename}. Please double check that the student has appropriately named the files.\n{TEST_CASES}"
 
             filename = secure_filename(z.filename)
             to_upload.append(filename)
@@ -132,9 +135,9 @@ def process_zip(file):
 
 @app.route("/files", methods=["GET"])
 def list_files():
-    if os.environ.get("FLASK_ENV") == "development":
+    if os.environ.get("FLASK_ENV") == "development" or True:
         path = os.path.join(app.config['UPLOAD_FOLDER'])
-        files = glob(path, recursive=False)
+        files = glob(path, recursive=True)
         log(files)
         return str(path)
     return "access denied"
