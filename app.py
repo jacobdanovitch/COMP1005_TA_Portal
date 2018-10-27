@@ -33,7 +33,7 @@ def process_upload():
         errors = []
         for file in uploads:
             name, num = parse_name_and_num(file.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], "")
+            path = os.path.join(app.config["UPLOAD_FOLDER"], name)
 
             successful_unzip, message = process_zip(file, path)
             if not successful_unzip:
