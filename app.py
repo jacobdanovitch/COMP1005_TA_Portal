@@ -48,9 +48,9 @@ def process_upload():
 def marking():
     name = request.args["name"]
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
-    exec_files = execute_files(file_dir)
-
-    if not exec_files:
+    try:
+        exec_files = execute_files(file_dir)
+    except:
         return f"No python files found at {file_dir}. Found: {glob(os.getcwd(), recursive=True)}"
 
     return render_template("marking.html",

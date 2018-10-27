@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +35,7 @@
           <entry key="html" value="1194" />
           <entry key="js" value="105" />
           <entry key="json" value="53" />
-          <entry key="py" value="3215" />
+          <entry key="py" value="3240" />
           <entry key="sh" value="3" />
           <entry key="txt" value="10" />
         </counts>
@@ -48,7 +47,7 @@
           <entry key="JSON" value="53" />
           <entry key="JavaScript" value="105" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="3248" />
+          <entry key="Python" value="3273" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,28 +75,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            <state relative-caret-position="71">
+              <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
                 <element signature="e#1#28#0" expanded="true" />
-                <element signature="e#539#1172#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+            <state relative-caret-position="639">
+              <caret line="115" column="25" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <element signature="e#550#685#0" />
-                <element signature="e#2270#3308#0" />
                 <marker date="1540609181771" expanded="true" signature="553:587" ph="..." />
               </folding>
             </state>
@@ -131,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TEST_CASES</find>
       <find>in TEST</find>
       <find>path</find>
       <find>div</find>
@@ -156,11 +152,12 @@
       <find>invalid</find>
       <find>zipped.</find>
       <find>list_file</find>
-      <find>process_zip</find>
       <find>allowed_</find>
       <find>process_file</find>
       <find>execute</find>
       <find>css</find>
+      <find>extractall</find>
+      <find>process_zip</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,8 +180,8 @@
         <option value="$PROJECT_DIR$/configs/config.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/run.sh" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -507,26 +504,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state relative-caret-position="639">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="25" />
           <folding>
-            <element signature="e#1#28#0" expanded="true" />
-            <element signature="e#539#1172#0" />
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#550#685#0" />
+            <marker date="1540609181771" expanded="true" signature="553:587" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        <state relative-caret-position="71">
+          <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#550#685#0" />
-            <element signature="e#2270#3308#0" />
-            <marker date="1540609181771" expanded="true" signature="553:587" ph="..." />
+            <element signature="e#1#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
