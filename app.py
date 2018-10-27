@@ -13,6 +13,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
 UPLOAD_PATH = os.path.join(ROOT_DIR, app.config['UPLOAD_FOLDER'])
+FROM_UPLOADS = lambda x: os.path.join(UPLOAD_FOLDER, x)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -31,7 +32,7 @@ def process_upload():
         errors = []
         for file in uploads:
             name, num = parse_name_and_num(file.filename)
-            path = os.path.join(UPLOAD_FOLDER, num)
+            path = FROM_UPLOADS(name)
 
             successful_unzip, message = process_zip(file, path)
             if not successful_unzip:
@@ -46,9 +47,14 @@ def process_upload():
 @app.route("/marking", methods=["GET", "POST"])
 def marking():
     name = request.args["name"]
+    exec_files = execute_files(FROM_UPLOADS(name.replace("-", " ")))
+
+    if not exec_files:
+        return "No python files found."
+
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
-                           files=execute_files(os.path.join(UPLOAD_FOLDER, name.replace("-", " "))),
+                           files=exec_files,
                            css=HtmlFormatter().get_style_defs(),
                            assignment=Assignment(MARKING_SCHEME))
 

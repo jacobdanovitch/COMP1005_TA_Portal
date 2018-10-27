@@ -55,6 +55,9 @@ def execute_files(file_dir):
 
     file_list = [Path(p) for p in glob(os.path.join(file_dir, "*.py"))]
 
+    if not file_list:
+        return None
+
     for file in file_list:
         with file.open() as py:
             code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
