@@ -53,7 +53,7 @@ def run_file(f, test):
 def execute_files(file_dir):
     files = []
 
-    file_list = [Path(p) for p in glob(os.path.join(file_dir, "*.py"))]
+    file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
 
     if not file_list:
         return None

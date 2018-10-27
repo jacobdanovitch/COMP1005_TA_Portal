@@ -51,7 +51,7 @@ def marking():
     exec_files = execute_files(file_dir)
 
     if not exec_files:
-        return f"No python files found at {file_dir}"
+        return f"No python files found at {file_dir}. Found: {glob(file_dir)}"
 
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
