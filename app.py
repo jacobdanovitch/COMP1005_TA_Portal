@@ -47,10 +47,11 @@ def process_upload():
 @app.route("/marking", methods=["GET", "POST"])
 def marking():
     name = request.args["name"]
-    exec_files = execute_files(FROM_UPLOADS(name.replace("-", " ")))
+    file_dir = FROM_UPLOADS(name.replace("-", " "))
+    exec_files = execute_files(file_dir)
 
     if not exec_files:
-        return "No python files found."
+        return f"No python files found at {file_dir}"
 
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),

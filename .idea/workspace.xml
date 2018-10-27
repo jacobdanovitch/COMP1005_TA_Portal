@@ -5,11 +5,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="Test" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-    </list>
+    <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +33,7 @@
           <entry key="html" value="1194" />
           <entry key="js" value="105" />
           <entry key="json" value="53" />
-          <entry key="py" value="3072" />
+          <entry key="py" value="3103" />
           <entry key="sh" value="3" />
           <entry key="txt" value="10" />
         </counts>
@@ -49,7 +45,7 @@
           <entry key="JSON" value="53" />
           <entry key="JavaScript" value="105" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="3105" />
+          <entry key="Python" value="3136" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+            <state relative-caret-position="231">
+              <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
               <folding>
                 <element signature="e#1#28#0" expanded="true" />
               </folding>
@@ -524,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        <state relative-caret-position="231">
+          <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
           <folding>
             <element signature="e#1#28#0" expanded="true" />
           </folding>
