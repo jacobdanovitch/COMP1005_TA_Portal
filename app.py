@@ -51,8 +51,8 @@ def marking():
     try:
         file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
         exec_files = execute_files(file_list)
-    except:
-        return f"No python files found at {file_dir}. Found: {glob(file_dir+'/*', recursive=True)}"
+    except Exception as e:
+        return f"No python files found at {file_dir}. Found: {glob(file_dir+'/*', recursive=True)}\n{e.with_traceback(e.__traceback__)}"
 
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
