@@ -12,8 +12,7 @@ app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
-UPLOAD_PATH = os.path.join(ROOT_DIR, app.config['UPLOAD_FOLDER'])
-FROM_UPLOADS = lambda x: os.path.join(UPLOAD_PATH, x)
+FROM_UPLOADS = lambda x: os.path.join(UPLOAD_FOLDER, x)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -32,7 +31,7 @@ def process_upload():
         errors = []
         for file in uploads:
             name, num = parse_name_and_num(file.filename)
-            path = FROM_UPLOADS(name)
+            path = FROM_UPLOADS(name.replace(" ", "-"))
 
             successful_unzip, message = process_zip(file, path)
             if not successful_unzip:
