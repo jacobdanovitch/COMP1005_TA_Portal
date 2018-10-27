@@ -3,7 +3,7 @@ from glob import glob
 import json
 from pathlib import Path
 
-ROOT_DIR = ("." if os.environ.get("FLASK_ENV") == "development" else "./COMP1005_TA_Portal")
+ROOT_DIR = "." # ("." if os.environ.get("FLASK_ENV") == "development" else "./COMP1005_TA_Portal")
 
 file_pattern = "a2.json" #f"a[1-9]*.json"
 path = os.path.join(ROOT_DIR,"**/configs", file_pattern)
