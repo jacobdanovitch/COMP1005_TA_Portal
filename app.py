@@ -51,7 +51,7 @@ def marking():
     try:
         exec_files = execute_files(file_dir)
     except:
-        return f"No python files found at {file_dir}. Found: {glob(os.getcwd(), recursive=True)}"
+        return f"No python files found at {file_dir}. Found: {glob(file_dir+'/*', recursive=True)}"
 
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
