@@ -102,10 +102,11 @@ def show_feedback(name):
 
 def process_zip(file):
     if not allowed_file(file.filename):
-        return False, f"Invalid file extension for file: {file.filename}."
+            return False, f"Invalid file extension for file: {file.filename}."
     zipped = _zip(file)
 
     to_upload = []
+
     for z in zipped.filelist:
         if z and ".py" in z.filename:
             f = Path(z.filename)
