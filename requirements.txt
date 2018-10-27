@@ -1,5 +1,5 @@
 pexpect
 pygments
-werkzeug
+werkzeug==0.12.2
 flask
 gunicorn

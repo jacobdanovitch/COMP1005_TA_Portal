@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/configs/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +56,7 @@
           <entry key="js" value="2" />
           <entry key="json" value="3" />
           <entry key="py" value="19" />
-          <entry key="txt" value="1" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -65,7 +65,7 @@
           <entry key="HTML" value="7" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="19" />
         </counts>
       </usages-collector>
@@ -73,7 +73,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -81,6 +81,15 @@
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -196,8 +205,8 @@
         <option value="$PROJECT_DIR$/configs/a2.json" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/Submission.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/configs/config.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -343,7 +352,7 @@
     <frame x="-6" y="-6" width="1435" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49642006" visible="true" weight="0.13633068" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49642006" visible="true" weight="0.13633068" />
       <window_info id="Structure" order="1" sideWeight="0.50358" side_tool="true" weight="0.25670776" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.32970452" />
@@ -491,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -536,6 +538,13 @@
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
