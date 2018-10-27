@@ -49,7 +49,8 @@ def marking():
     name = request.args["name"]
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
     try:
-        exec_files = execute_files(file_dir)
+        file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
+        exec_files = execute_files(file_list)
     except:
         return f"No python files found at {file_dir}. Found: {glob(file_dir+'/*', recursive=True)}"
 

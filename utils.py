@@ -41,14 +41,8 @@ def run_file(f, test):
     return returncode, out
 
 
-def execute_files(file_dir):
+def execute_files(file_list):
     files = []
-
-    file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
-    log(glob(file_dir))
-
-    if not file_list:
-        return None
 
     for file in file_list:
         with file.open() as py:
