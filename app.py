@@ -137,7 +137,7 @@ def process_zip(file):
 @app.route("/files", methods=["GET"])
 def list_files():
     if os.environ.get("FLASK_ENV") == "development" or True:
-        path = os.path.join(app.config['UPLOAD_FOLDER'])
+        path = os.path.join(app.config['UPLOAD_FOLDER'], "tmp")
         files = os.listdir(path)# glob(path, recursive=True)
         log(files)
         return str(path)
