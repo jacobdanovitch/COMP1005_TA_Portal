@@ -1,3 +1,5 @@
+pexpect
+pygments
 werkzeug
 flask
 gunicorn
