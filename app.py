@@ -13,7 +13,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
 UPLOAD_PATH = os.path.join(ROOT_DIR, app.config['UPLOAD_FOLDER'])
-FROM_UPLOADS = lambda x: os.path.join(UPLOAD_FOLDER, x)
+FROM_UPLOADS = lambda x: os.path.join(UPLOAD_PATH, x)
 
 
 @app.route("/", methods=['GET', 'POST'])
