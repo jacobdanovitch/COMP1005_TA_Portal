@@ -25,7 +25,6 @@ Problem 2: [/10]
 /1 mark - The rest of the program still functions as intended
 
 
-
 Problem 3: [/5]
 /1 mark - Menu of currencies is correctly displayed, and the users input is requested and stored
 /1 mark - Bad selection causes the currency menu to repeat
@@ -35,10 +34,8 @@ Problem 3: [/5]
 
 
 Documentation: [/5]
-These are discretionary marks for the cleanliness of the code. Be forgiving as this is likely their first large piece of code.
-Provide feedback here where improvements can be made:
-(more comments, fewer comments, use whitespace to organize, meaningful variable names, etc)
-Dock 2 marks if they didn't include their student name and # at the top of each file
+/2 marks - student name and # at the top of each file
+/3 marks - code cleanliness
 
 
 Total: [/30]

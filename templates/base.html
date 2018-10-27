@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <script>alert('{{ message }}');</script>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <div class="jumbotron">
     <h1>COMP1005 Marking</h1>
 </div>
@@ -28,7 +36,7 @@
             <p>Make sure it contains files [a1_p1.py, a1_p2.py ..].</p>
         </div>
         <div class="inline">
-            <input type="submit" class="ui primary button btn btn-primary"/>
+            <input type="submit" class="ui primary button"/>
 
             <label for="file" class="ui icon button">
                 <i class="file archive icon"></i>

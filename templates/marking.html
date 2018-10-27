@@ -28,6 +28,7 @@
                 let tab = this.attributes['data-tab'].value;
 
                 $("[data-tab='" + tab + "']").addClass("active");
+                $(".content").addClass("active"); // hacky; makes all active each time you click one
 
             });
         });
@@ -40,8 +41,8 @@
         <hr/>
 
         <div class="ui top attached tabular menu">
-            {% for (file, _, _) in files %}
-                <a class="item" data-tab={{ file }}>{{ file }}</a>
+            {% for question in assignment.get_questions() %}
+                <a class="item" data-tab={{ assignment.question_to_file(question) }}>{{ question }}</a>
             {% endfor %}
             <input style="position: absolute; right: 0;" class="ui positive button" type="submit" name="submit"
                    value="Create Feedback"/>
@@ -50,7 +51,7 @@
     </div>
     <div id="submission">
         {% for (file, code, output) in files %}
-            <div class="ui bottom attached tab segment" data-tab={{ file }}>
+            <div class="ui bottom attached tab segment" data-tab={{ file.name }}>
                 <div class="ui styled accordion" style="width: 100%;">
                     <div class="title active">
                         <i class="dropdown icon"></i>
@@ -65,24 +66,23 @@
                     </div>
                     <div class="content active">
                         {% for o in output %}
-                            {{ o }}
+                            {{ o | safe}}
                         {% endfor %}
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
-    </div>
     <div id="marking" class="ui sticky form" >
         <div class="ui styled accordion" >
         <div class="title"></div>
-            {% for label, q in  assignment.questions.items() %}
-                <div class="ui bottom attached tab segment" data-tab={{ label }}>
-                    {% for part in q.contents %}
+            {% for name, question in  assignment.contents.items() %}
+                <div class="ui bottom attached tab segment" data-tab={{ assignment.question_to_file(name) }}>
+                    {% for part in question['contents'] %}
                         <div class="field">
-                            <label>{{ part }}</label><br/>
+                            <label>{{ "/{} - {}".format(part['mark'], assignment.semicolon_sep_to_ul(part['description'])) | safe }}</label><br/>
                             <input type="number" step=0.1
-                                   name={{ "{}-{}".format(label, loop.index0) }} placeholder="Mark..."/>
+                                   name={{ "{}-{}".format(assignment.question_to_file(name), loop.index0) }} placeholder="Mark..."/>
                         </div>
                     {% endfor %}
                 </div>

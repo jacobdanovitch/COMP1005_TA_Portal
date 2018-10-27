@@ -1,44 +1,35 @@
 from utils import *
-from Question import *
-
+import json
+from flask import Markup
 
 class Assignment:
-    def __init__(self):
-        self.questions, self.total = self.parse(MARKING_SCHEME)
+    def __init__(self, marking_scheme):
+        with open(marking_scheme, "r") as f:
+            self.contents = json.load(f)
+            self.q2f = {
+                p: (f"a{ASSIGNMENT_NUM}_p{i+1}.py" if "Problem" in p else p)
+                for i, p in enumerate(self.contents.keys())
+            }
 
         self.marked_by = MARKED_BY
         self.email = EMAIL
 
+    def question_to_file(self, q):
+        return self.q2f[q]
+
     def __str__(self):
-        return f"ASSIGNMENT {ASSIGNMENT_NUM}\n\n" + "\n\n".join([str(q) for q in self.questions])
+        return f"ASSIGNMENT {ASSIGNMENT_NUM}\n\n" + json.dumps(self.contents, indent=2)
 
     def __repr__(self):
         return str(self)
 
+    def get_questions(self):
+        return [q for q in self.contents if q != "Total"]
+
     @staticmethod
-    def parse(txt):
-        questions = {}
+    def semicolon_sep_to_ul(x):
+        spl = re.split("\s*;\s*", x)
+        if len(spl) == 1:
+            return spl[0]
 
-        with open(txt, "r") as f:
-            data = f.read()
-
-        total = re.findall(r"Total: \[\/(\d+)\]", data)
-        if total:
-            total = int(total[0])
-
-        data = data.split("\n\n")
-
-        for q in data:
-            name = q.split(":")[0]
-            if "Total" in name:
-                continue
-
-            num = "".join(re.findall(r'\d+', name))
-
-            filename = f"a{ASSIGNMENT_NUM}_p{num}.py" if num else name
-            if filename not in TEST_CASES:
-                TEST_CASES[filename] = False
-
-            question = Question(q.split("\n"), filename, TEST_CASES[filename])
-            questions[question.file] = question
-        return questions, total
+        return "<ul>"+"".join([Markup(f"<li>{p}</li>") for p in spl])+"</ul>"

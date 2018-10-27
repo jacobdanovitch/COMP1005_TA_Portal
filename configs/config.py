@@ -12,7 +12,7 @@ TEST_CASES = config['test_cases']
 ASSIGNMENT_NUM = config['assignment_num']
 
 ROOT_DIR = ("." if os.environ.get("FLASK_ENV") == "development" else "./COMP1005_TA_Portal")
-MARKING_SCHEME = Path(os.path.join(ROOT_DIR, "solutions", f"a{ASSIGNMENT_NUM}", "marking.txt"))
+MARKING_SCHEME = Path(os.path.join(ROOT_DIR, "solutions", f"a{ASSIGNMENT_NUM}", "marking.json"))
 
 MARKED_BY = config['marked_by']
 

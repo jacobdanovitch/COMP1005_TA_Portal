@@ -1,0 +1,103 @@
+{
+  "Problem 1": {
+    "total": 10,
+    "contents": [
+      {
+        "mark": 1,
+        "description": "Request and store the user's name"
+      },
+      {
+        "mark": 1,
+        "description": "Menu of doughnuts is correctly displayed"
+      },
+      {
+        "mark": 1,
+        "description": "User's doughnut selection is requested and stored  (menu prompt works)"
+      },
+      {
+        "mark": 2,
+        "description": "Bad selections cause the menu to repeat (menu is in a loop, probably using a flag pattern)"
+      },
+      {
+        "mark": 1,
+        "description": "Request and store the user's quantity of purchase, user input must be converted to a number (preferrably int)"
+      },
+      {
+        "mark": 1,
+        "description": "A personalized receipt is displayed (users name is displayed)"
+      },
+      {
+        "mark": 1,
+        "description": "Selected doughnut and quantity are displayed in the receipt"
+      },
+      {
+        "mark": 2,
+        "description": "Correctly calculates and displays the total price (1 mark for the calculation, 1 mark for displaying with exactly 2 decimal places)"
+      }
+    ]
+  },
+  "Problem 2": {
+    "total": 10,
+    "contents": [
+      {
+        "mark": 3,
+        "description": "Doughnut menu is repeated until customer chooses to stop; menu option added for stopping; selecting that option stops the menu, otherwise menu repeats; bad selections still cause repeat"
+      },
+      {
+        "mark": 3,
+        "description": "User's entered quantity of each requested variety of doughnut is stored; separate variables for each quantity (each initialized to zero); correct type of doughnut labelled when quantity requested ; correct quantity variable set with each menu selection"
+      },
+      {
+        "mark": 1,
+        "description": "Correctly calculate the total cost "
+      },
+      {
+        "mark": 2,
+        "description": "Correct display of selected doughnuts in the receipt; only selected varieties are displayed; selected varieties are displayed correctly (quantity and name)"
+      },
+      {
+        "mark": 1,
+        "description": "The rest of the program still functions as intended"
+      }
+    ]
+  },
+  "Problem 3": {
+    "total": 5,
+    "contents": [
+      {
+        "mark": 1,
+        "description": "Menu of currencies is correctly displayed, and the users input is requested and stored"
+      },
+      {
+        "mark": 1,
+        "description": "Bad selection causes the currency menu to repeat"
+      },
+      {
+        "mark": 1,
+        "description": "The selected currency exchange rate is correctly used to calculate the final cost"
+      },
+      {
+        "mark": 1,
+        "description": "The currency name appears along with the cost"
+      },
+      {
+        "mark": 1,
+        "description": "The rest of the program still functions as intended"
+      }
+    ]
+  },
+  "Documentation": {
+    "total": 5,
+    "contents": [
+      {
+        "mark": 2,
+        "description": "student name and # at the top of each file"
+      },
+      {
+        "mark": 3,
+        "description": "code cleanliness"
+      }
+    ]
+  },
+  "Total": 30
+}
