@@ -13,8 +13,8 @@ app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
-ROOT = os.path.dirname(__file__)
-FROM_UPLOADS = lambda x: os.path.join(os.getcwd(), UPLOAD_FOLDER, x)
+# ROOT = os.path.dirname(__file__)
+FROM_UPLOADS = lambda x: os.path.join(ROOT_DIR, UPLOAD_FOLDER, x)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -46,8 +46,15 @@ def marking():
     name = request.args["name"]
 
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
-    file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
-    out = execute_files(file_list)
+    file_list = [Path(p).open() for p in glob(f"{file_dir}/*.py")]
+    # return str(file_list)
+    try:
+        out = execute_files(file_list)
+    except Exception as e:
+        return f"ERR: {e.with_traceback(e.__traceback__)}"
+
+    if not out:
+        return f"Empty output: {file_list}"
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
                            files=out,
@@ -87,10 +94,9 @@ def show_feedback(name):
 @app.route("/files", methods=["GET"])
 def list_files():
     if os.environ.get("FLASK_ENV") == "development" or True:
-        path = os.path.join(app.config['UPLOAD_FOLDER'])
+        path = FROM_UPLOADS("*")
         files = glob(path, recursive=True)
-        log(files)
-        return str(path)
+        return str(files)
     return "access denied"
 
 

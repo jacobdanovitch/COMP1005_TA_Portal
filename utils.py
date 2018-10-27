@@ -5,7 +5,7 @@ from pygments import highlight, lexer, format
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers.python import Python3Lexer, PythonConsoleLexer, Python3TracebackLexer
 from flask import Markup
-from configs.config import MARKING_SCHEME, EMAIL, TEST_CASES, ASSIGNMENT_NUM, MARKED_BY
+from configs.config import MARKING_SCHEME, EMAIL, TEST_CASES, ASSIGNMENT_NUM, MARKED_BY, ROOT_DIR
 import re
 from glob import glob
 from pathlib import Path
@@ -47,13 +47,14 @@ def execute_files(file_list):
     files = []
 
     for file in file_list:
-        with file.open() as py:
-            code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
-            log(code)
+        code = Markup(highlight(file.read(), Python3Lexer(), HtmlFormatter()))
         outputs = []
 
         for test in TEST_CASES[file.name.replace(".py", "")]:
-            returncode, out = run_file(file, test)
+            try:
+                returncode, out = run_file(file, test)
+            except Exception as e:
+                raise e
 
             Lex = PythonConsoleLexer if (returncode == 0) else Python3TracebackLexer
 
