@@ -13,7 +13,6 @@ from subprocess import run, PIPE
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {"zip"}
-ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def log(msg):
     print(str(msg), file=stderr)
@@ -46,6 +45,7 @@ def execute_files(file_dir):
     files = []
 
     file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
+    log(glob(file_dir))
 
     if not file_list:
         return None
