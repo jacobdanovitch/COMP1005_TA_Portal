@@ -13,6 +13,7 @@ from subprocess import run, PIPE
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {"zip"}
+ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def log(msg):
     print(str(msg), file=stderr)
@@ -80,8 +81,9 @@ def parse_name_and_num(path):
         # name = re.findall(r"^[^_]+", path)[0]
         # num = re.findall(r"(?<=_)(\d*)(?=_)", path)[0]
         s = path.split("_")
+        log(s)
         name = " ".join(s[:2])
-        num = None
+        num = None # re.search(r"", s[1]).group()
         return name, num
     except IndexError as e:
         raise IndexError(f"Invalid name and num for {path}.").with_traceback(e.__traceback__)

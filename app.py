@@ -1,7 +1,6 @@
 from itertools import chain
 from flask import Flask, request, redirect, url_for, render_template, flash
 
-
 from utils import *
 from Assignment import *
 
@@ -13,8 +12,7 @@ app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
-
-
+UPLOAD_PATH = os.path.join(ROOT_DIR, app.config['UPLOAD_FOLDER'])
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -33,7 +31,7 @@ def process_upload():
         errors = []
         for file in uploads:
             name, num = parse_name_and_num(file.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], name)
+            path = os.path.join(UPLOAD_FOLDER, num)
 
             successful_unzip, message = process_zip(file, path)
             if not successful_unzip:
@@ -41,7 +39,6 @@ def process_upload():
 
             if errors:
                 return "\n\n".join(errors)
-
 
             return redirect(url_for("marking", name=name))
 
@@ -51,7 +48,7 @@ def marking():
     name = request.args["name"]
     return render_template("marking.html",
                            name=re.sub(r"(?<!-.)-", ", ", name, count=1).replace("-", " "),
-                           files=execute_files(os.path.join(app.config['UPLOAD_FOLDER'], name.replace(" ", "-"))),
+                           files=execute_files(os.path.join(UPLOAD_FOLDER, name.replace("-", " "))),
                            css=HtmlFormatter().get_style_defs(),
                            assignment=Assignment(MARKING_SCHEME))
 
