@@ -45,11 +45,10 @@ def marking():
 
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
     file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
-    # return str(file_list)
+
     try:
         out = execute_files(file_list)
     except Exception as e:
-        log(file_list)
         return f"ERR: {e.with_traceback(e.__traceback__)}"
 
     if not out:
@@ -72,7 +71,6 @@ def show_feedback(name):
 
         questions = [v['contents'] for k, v in a.contents.items() if k != "Total"]
         questions = list(chain.from_iterable(questions))
-        log(questions)
         questions = [f"/{q['mark']} - {q['description']}" for q in questions]
 
         grade = sum(data)
@@ -84,7 +82,7 @@ def show_feedback(name):
 
         return render_template("feedback.html",
                                author=(a.marked_by, a.email),
-                               data=dict(zip(questions, data)),
+                               data=zip(questions, data),
                                name=name,
                                remarks="Nice job! " if pct > 80 else "")
     return "failure"

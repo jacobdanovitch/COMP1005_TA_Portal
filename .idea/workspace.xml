@@ -7,6 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a97c17ef-a595-4f95-8592-f2ec3e8bdc4e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/feedback.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,17 +24,19 @@
     <session id="-870295056">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="33" />
+          <entry key="bat" value="7" />
           <entry key="css" value="10" />
-          <entry key="html" value="1194" />
+          <entry key="html" value="1246" />
           <entry key="js" value="105" />
           <entry key="json" value="53" />
           <entry key="py" value="3943" />
@@ -42,8 +46,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Bat" value="7" />
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="1194" />
+          <entry key="HTML" value="1246" />
           <entry key="JSON" value="53" />
           <entry key="JavaScript" value="105" />
           <entry key="PLAIN_TEXT" value="16" />
@@ -52,63 +57,51 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="bat" value="1" />
           <entry key="css" value="1" />
-          <entry key="html" value="7" />
+          <entry key="gitignore" value="1" />
+          <entry key="html" value="10" />
           <entry key="js" value="2" />
           <entry key="json" value="3" />
           <entry key="py" value="21" />
-          <entry key="sh" value="2" />
-          <entry key="txt" value="2" />
+          <entry key="sh" value="3" />
+          <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Bat" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="7" />
+          <entry key="HTML" value="10" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="Python" value="21" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+            <state relative-caret-position="367">
+              <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
               <folding>
-                <element signature="e#1#28#0" expanded="true" />
+                <element signature="e#2977#3162#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/feedback.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="66" column="16" lean-forward="true" selection-start-line="32" selection-end-line="66" selection-end-column="16" />
+            <state relative-caret-position="294">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#628#763#0" />
-                <element signature="e#1907#2241#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/marking.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-444">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="14" />
-              <folding>
-                <element signature="n#script#3;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,8 +149,8 @@
       <find>process_file</find>
       <find>execute</find>
       <find>process_zip</find>
-      <find>css</find>
       <find>list_</find>
+      <find>css</find>
       <find>extractall</find>
     </findStrings>
   </component>
@@ -172,7 +165,6 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/static/js/feedback.js" />
         <option value="$PROJECT_DIR$/Assignment.py" />
-        <option value="$PROJECT_DIR$/templates/feedback.html" />
         <option value="$PROJECT_DIR$/templates/marking.html" />
         <option value="$PROJECT_DIR$/static/marking.css" />
         <option value="$PROJECT_DIR$/configs/a2.json" />
@@ -182,7 +174,9 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/run.sh" />
         <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/run.bat" />
         <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/templates/feedback.html" />
       </list>
     </option>
   </component>
@@ -200,7 +194,7 @@
       <path value="$PROJECT_DIR$/static/semantic/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1584" />
     <option name="width" value="1629" />
     <option name="height" value="1728" />
@@ -214,6 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,6 +224,17 @@
             <path>
               <item name="COMP1005_TA_Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="COMP1005_TA_Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="solutions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="COMP1005_TA_Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COMP1005_TA_Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="solutions" type="462c0819:PsiDirectoryNode" />
+              <item name="a2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="COMP1005_TA_Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COMP1005_TA_Portal" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -240,7 +246,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,10 +330,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="704" y="0" width="724" height="768" extended-state="0" />
+    <frame x="-6" y="-6" width="1435" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49642006" visible="true" weight="0.28143713" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49642006" visible="true" weight="0.137781" />
       <window_info id="Structure" order="1" sideWeight="0.50358" side_tool="true" weight="0.25670776" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,7 +345,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24413146" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.24261275" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32905295" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3281493" />
@@ -407,13 +412,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Question.py" />
-    <entry file="file://$PROJECT_DIR$/templates/feedback.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/marking.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -457,13 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/a2.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -471,24 +462,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/marking.html">
+    <entry file="file://$PROJECT_DIR$/app.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="14" />
-          <folding>
-            <element signature="n#script#3;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="42">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py" />
     <entry file="file://$PROJECT_DIR$/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+          <caret column="20" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -504,10 +501,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+        <state relative-caret-position="367">
+          <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
           <folding>
-            <element signature="e#1#28#0" expanded="true" />
+            <element signature="e#2977#3162#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/marking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/feedback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

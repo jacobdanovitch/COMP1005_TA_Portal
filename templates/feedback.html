@@ -12,6 +12,7 @@
 </head>
 <body>
 <div style="text-align: center;">
+    <a style="float: left; left: 0;" href="/">Home</a>
     <h1>Feedback</h1>
     <p style="font-size: x-small">Copy and paste right into CULearn!</p>
     <button class="ui button" id="copyButton">Click here to copy!</button>
@@ -27,7 +28,7 @@
             <th>Mark</th>
             <th>Criteria</th>
         </tr>
-        {% for q, mark in data.items() %}
+        {% for q, mark in data %}
             <tr>
                 <td>{{ mark | safe }}</td>
                 <td>{{ q | safe}}</td>
