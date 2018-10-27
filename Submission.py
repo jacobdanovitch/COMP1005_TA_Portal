@@ -4,7 +4,6 @@ from pexpect.popen_spawn import PopenSpawn
 from glob import glob
 from pathlib import Path
 import re
-from IPython.display import Markdown, clear_output
 import time
 
 
