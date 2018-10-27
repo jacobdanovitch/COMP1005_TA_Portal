@@ -16,6 +16,10 @@ cd COMP1005_TA_Portal
 pip install -r requirements.txt
 ```
 
+## Run
+
+The files may be double-clicked or run through the terminal.
+
 To run on Windows:
 ```cmd
 run.bat
@@ -25,3 +29,5 @@ To run on Linux:
 ```bash
 ./run.sh
 ```
+
+Note: This will launch into a standalone Chrome window. If you don't have Chrome installed, get rid of the final line of the run script. 
