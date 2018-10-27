@@ -49,7 +49,6 @@ def execute_files(file_list):
     for file in file_list:
         with file.open() as py:
             code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
-            log(code)
         outputs = []
 
         for test in TEST_CASES[file.name.replace(".py", "")]:
