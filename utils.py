@@ -3,14 +3,16 @@ from sys import exit, stderr
 from pygments import highlight, lexer, format
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers.python import Python3Lexer, PythonConsoleLexer, Python3TracebackLexer
-from pexpect.popen_spawn import PopenSpawn
 from flask import Markup
 from configs.config import MARKING_SCHEME, EMAIL, TEST_CASES, ASSIGNMENT_NUM, MARKED_BY
 import re
 from glob import glob
 from pathlib import Path
-
+from zipfile import ZipFile as _zip
 from subprocess import run, PIPE
+from werkzeug.utils import secure_filename
+
+ALLOWED_EXTENSIONS = {"zip"}
 
 def log(msg):
     print(str(msg), file=stderr)
@@ -83,3 +85,39 @@ def parse_name_and_num(path):
         return name, num
     except IndexError as e:
         raise IndexError(f"Invalid name and num for {path}.").with_traceback(e.__traceback__)
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def process_zip(file, file_dir):
+    if not allowed_file(file.filename):
+        return False, f"Invalid file extension for file: {file.filename}."
+    zipped = _zip(file)
+
+    if not zipped.filelist:
+        return False, "File list is empty."
+
+    to_upload = []
+
+    for z in zipped.filelist:
+        if z and ".py" in z.filename:
+            f = Path(z.filename)
+            name = f.stem
+
+            if f.parent.name:  # Ignore if the file is in a subdiretory like MACOSX
+                continue
+
+            if name not in TEST_CASES:
+                return False, f"Invalid file name {z.filename}. Please double check that the student has appropriately named the files.\n{TEST_CASES}"
+
+            filename = secure_filename(z.filename)
+            to_upload.append(filename)
+
+    if to_upload:
+        name, num = parse_name_and_num(file.filename)
+        zipped.extractall(path=file_dir, members=to_upload)
+    else:
+        return False, "No valid files to upload."
+
+    return True, ""
