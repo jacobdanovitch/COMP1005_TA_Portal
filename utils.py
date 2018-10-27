@@ -47,14 +47,13 @@ def execute_files(file_list):
     files = []
 
     for file in file_list:
-        code = Markup(highlight(file.read(), Python3Lexer(), HtmlFormatter()))
+        with file.open() as py:
+            code = Markup(highlight(py.read(), Python3Lexer(), HtmlFormatter()))
+            log(code)
         outputs = []
 
         for test in TEST_CASES[file.name.replace(".py", "")]:
-            try:
-                returncode, out = run_file(file, test)
-            except Exception as e:
-                raise e
+            returncode, out = run_file(file, test)
 
             Lex = PythonConsoleLexer if (returncode == 0) else Python3TracebackLexer
 

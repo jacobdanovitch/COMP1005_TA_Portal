@@ -1,6 +1,5 @@
 from itertools import chain
-from flask import Flask, request, redirect, url_for, render_template, flash, session
-from base64 import b64encode
+from flask import Flask, request, redirect, url_for, render_template, flash
 
 from utils import *
 from Assignment import *
@@ -13,7 +12,6 @@ app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = '12345'
 
-# ROOT = os.path.dirname(__file__)
 FROM_UPLOADS = lambda x: os.path.join(ROOT_DIR, UPLOAD_FOLDER, x)
 
 
@@ -46,11 +44,12 @@ def marking():
     name = request.args["name"]
 
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
-    file_list = [Path(p).open() for p in glob(f"{file_dir}/*.py")]
+    file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
     # return str(file_list)
     try:
         out = execute_files(file_list)
     except Exception as e:
+        log(file_list)
         return f"ERR: {e.with_traceback(e.__traceback__)}"
 
     if not out:
