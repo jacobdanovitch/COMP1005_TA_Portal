@@ -35,12 +35,15 @@ def run_file(f, test):
     if isinstance(test, list):
         test = "\n".join(test)
 
-    p = run(f"python {f}", stdout=PIPE, stderr=PIPE, input=test, encoding='ascii')
+    try:
+        p = run(f"python {f}", stdout=PIPE, stderr=PIPE, input=test, encoding='ascii', timeout=5)
 
-    returncode = p.returncode
-    out = p.stdout if (returncode == 0) else p.stderr
+        returncode = p.returncode
+        out = p.stdout if (returncode == 0) else p.stderr
 
-    return returncode, out
+        return returncode, out
+    except Exception as e:
+        return 1, str(e.with_traceback(e.__traceback__))
 
 
 def execute_files(file_list):
