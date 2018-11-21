@@ -1,5 +1,0 @@
-pexpect
-pygments
-werkzeug==0.12.2
-flask
-gunicorn
