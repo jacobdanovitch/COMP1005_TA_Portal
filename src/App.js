@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UploadForm from './Home';
 
 const {app} = window.require('electron').remote;
 
@@ -8,14 +9,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>React + Electron = <span role="img" aria-label="love">😍!</span></h2>
+        <div className="jumbotron">
+          <h1>COMP1005 Marking</h1>
         </div>
-        <p className="App-intro">
-          <b> Release 0.2.7 </b>
-          Version: {app.getVersion()}
-        </p>
+
+        <UploadForm/>
+
+        <form method="POST" encType="multipart/form-data" action="localhost:5000/upload">
+
+        </form>
       </div>
     );
   }
