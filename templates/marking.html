@@ -29,8 +29,15 @@
 
                 $("[data-tab='" + tab + "']").addClass("active");
                 $(".content").addClass("active"); // hacky; makes all active each time you click one
-
             });
+
+            $('.ui.modal').modal();
+
+            $('.output').click(function(){
+                let i = this.attributes['data-outputID'].value;
+                $('.ui.basic.modal[data-outputID="'+i+'"]').modal('show');
+            })
+
         });
     </script>
 </head>
@@ -41,7 +48,7 @@
         <h1 style="text-align: center">{{ name }}</h1>
         <hr/>
 
-        <div class="ui top attached tabular menu">
+        <div class="ui top attached tabular menu question-tabs">
             {% for question in assignment.get_questions() %}
                 <a class="item" data-tab={{ assignment.question_to_file(question) }}>{{ question }}</a>
             {% endfor %}
@@ -52,7 +59,9 @@
     </div>
     <div id="submission">
         {% for (file, code, output) in files %}
-            <div class="ui bottom attached tab segment" data-tab={{ file.name }}>
+            
+            <!-- class="ui bottom attached tab segment" data-tab={{ file.name }} -->
+            <div>
                 <div class="ui styled accordion" style="width: 100%;">
                     <div class="title active">
                         <i class="dropdown icon"></i>
@@ -66,6 +75,26 @@
                         Output
                     </div>
                     <div class="content active">
+                    <button type="button">show</button>
+                    <div class="ui basic modal" data-outputID="-1">
+                        <div class="ui icon header">
+                            <i class="archive icon"></i>
+                            Archive Old Messages
+                        </div>
+                        <div class="content">
+                            <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+                        </div>
+                        <div class="actions">
+                            <div class="ui red basic cancel inverted button">
+                            <i class="remove icon"></i>
+                            No
+                            </div>
+                            <div class="ui green ok inverted button">
+                            <i class="checkmark icon"></i>
+                            Yes
+                            </div>
+                        </div>
+                    </div>
                         {% for o in output %}
                             {{ o | safe}}
                         {% endfor %}
@@ -74,16 +103,16 @@
             </div>
         {% endfor %}
     </div>
-    <div id="marking" class="ui sticky form" >
+    <div id="marking" class="ui form" >
         <div class="ui styled accordion" >
         <div class="title"></div>
             {% for name, question in  assignment.contents.items() %}
                 <div class="ui bottom attached tab segment" data-tab={{ assignment.question_to_file(name) }}>
                     {% for part in question['contents'] %}
                         <div class="field">
-                            <label>{{ "/{} - {}".format(part['mark'], assignment.semicolon_sep_to_ul(part['description'])) | safe }}</label><br/>
+                            <label>{{ "{}. {} (/{})".format(loop.index, assignment.semicolon_sep_to_ul(part['description']), part['mark']) | safe }}</label>
                             <input type="number" step=0.1
-                                   name={{ "{}-{}".format(assignment.question_to_file(name), loop.index0) }} placeholder="Mark..."/>
+                                   name={{ "{}-{}".format(assignment.question_to_file(name), loop.index0) }} value={{ part['mark'] }} placeholder="Mark..."/>
                         </div>
                     {% endfor %}
                 </div>

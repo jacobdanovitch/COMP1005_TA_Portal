@@ -1,0 +1,137 @@
+{
+  "Problem 1": {
+    "total": 30,
+    "contents": [
+      {
+        "mark": 1,
+        "description": "generates a 5 digit password (integer list)"
+      },
+      {
+        "mark": 1,
+        "description": "password is random digits from 1-9"
+      },
+      {
+        "mark": 3,
+        "description": "password is generated with no duplicate values"
+      },
+      {
+        "mark": 1,
+        "description": "function returns a list"
+      },
+      {
+        "mark": 1,
+        "description": "one single input for all 5 digits"
+      },
+      {
+        "mark": 1,
+        "description": "digits split into a list"
+      },
+      {
+        "mark": 1,
+        "description": "list elements cast to integers  (or technically the password could be cast to strings)"
+      },
+      {
+        "mark": 1,
+        "description": "function returns a list:"
+      },
+      {
+        "mark": 1,
+        "description": "function accepts two list arguments"
+      },
+      {
+        "mark": 2,
+        "description": "for each digit in guess, count if in password"
+      },
+      {
+        "mark": 2,
+        "description": "for each digit in guess, count if == password[i]"
+      },
+      {
+        "mark": 1,
+        "description": "report both values (print)"
+      },
+      {
+        "mark": 1,
+        "description": "return boolean if all 5 correct"
+      },
+      {
+        "mark": 1,
+        "description": "Initialization is done outside the loop (generate a random password ONCE, initialize turns remaining)"
+      },
+      {
+        "mark": 1,
+        "description": "Turns remaining displayed every turn"
+      },
+      {
+        "mark": 1,
+        "description": "Guess is compared to the password"
+      },
+      {
+        "mark": 1,
+        "description": "User is prompted to make a new guess"
+      },
+      {
+        "mark": 1,
+        "description": "main(), has the main game loop, calls the other functions appropriately"
+      },
+      {
+        "mark": 1,
+        "description": "generatePassword(), no args, generates and returns a random password"
+      },
+      {
+        "mark": 1,
+        "description": "getUserGuess(), no args, asks for user input and returns the list of it"
+      },
+      {
+        "mark": 1,
+        "description": "reportResult(), two lists as args, compares them to determine results, and returns boolean."
+      },
+      {
+        "mark": 1,
+        "description": "game repeats until a win or a loss"
+      },
+      {
+        "mark": 1,
+        "description": "game ends in loss after 10 turns"
+      },
+      {
+        "mark": 1,
+        "description": "lose message displays the correct answer, formatted nicely (ie, not just print(list))"
+      },
+      {
+        "mark": 1,
+        "description": "game ends (early) in win if user guesses correctly."
+      },
+      {
+        "mark": 1,
+        "description": "prompt to play again, with validated user input"
+      }
+    ]
+  },
+  "Documentation": {
+    "total": 5,
+    "contents": [
+      {
+        "mark": 1,
+        "description": "student name and # at the top of each file"
+      },
+      {
+        "mark": 1,
+        "description": "students should use whitespace to separate meaningful blocks of code"
+      },
+      {
+        "mark": 1,
+        "description": "every function should have a doc-string or comment describing its purpose (except maybe main())"
+      },
+      {
+        "mark": 1,
+        "description": "meaningful variable names should be used"
+      },
+      {
+        "mark": 1,
+        "description": "additional comments for meaningful parts of the code or tricky lines are nice as well"
+      }
+    ]
+  },
+  "Total": 35
+}

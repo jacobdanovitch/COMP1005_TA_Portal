@@ -9,3 +9,9 @@
     float:right;
     right: 0;
 }
+
+.question-tabs {
+    max-width: 55% !important;
+    overflow-x: scroll;
+    overflow-y: visible;
+}

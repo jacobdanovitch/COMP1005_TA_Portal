@@ -1,0 +1,235 @@
+{
+    "loadTextFile()": {
+        "total": 4,
+        "contents": [{
+                "mark": 1,
+                "description": "opens the file for read mode (default mode)"
+            },
+            {
+                "mark": 1,
+                "description": "reads the text as one string"
+            },
+            {
+                "mark": 1,
+                "description": "closes the file"
+            },
+            {
+                "mark": 1,
+                "description": "try/except used, default \"\" returned if IOError occurs"
+            }
+        ]
+    },
+    "countWords()": {
+        "total": 3,
+        "contents": [{
+                "mark": 1,
+                "description": "reads the text file"
+            },
+            {
+                "mark": 1,
+                "description": "splits the text string into words"
+            },
+            {
+                "mark": 1,
+                "description": "returns the number of words"
+            }
+        ]
+    },
+    "countSentences()": {
+        "total": 3,
+        "contents": [{
+                "mark": 1,
+                "description": "reads the text file"
+            },
+            {
+                "mark": 1,
+                "description": "counts occurrences of each of . ! and ?"
+            },
+            {
+                "mark": 1,
+                "description": "returns the sum of all 3"
+            }
+        ]
+    },
+    "removePunctuation()": {
+        "total": 4,
+        "contents": [{
+                "mark": 1,
+                "description": "does not read a file (text-string argument)"
+            },
+            {
+                "mark": 1,
+                "description": "removes punctuation from the entire text"
+            },
+            {
+                "mark": 1,
+                "description": "removes all required punctuation symbols"
+            },
+            {
+                "mark": 1,
+                "description": "returns the mutated string"
+            }
+        ]
+    },
+    "wordFrequency()": {
+        "total": 7,
+        "contents": [{
+                "mark": 2,
+                "description": "loads and prepares the text file (all one case, no punctuation, split into words)"
+            },
+            {
+                "mark": 1,
+                "description": "initializes a dictionary (or successfully uses a different data structure)"
+            },
+            {
+                "mark": 1,
+                "description": "iterates over each word in the file"
+            },
+            {
+                "mark": 1,
+                "description": "counts each occurrence of a given word"
+            },
+            {
+                "mark": 1,
+                "description": "adds new words to the dictionary"
+            },
+            {
+                "mark": 1,
+                "description": "returns the final data structure"
+            }
+        ]
+    },
+    "countUniqueWords()": {
+        "total": 3,
+        "contents": [{
+                "mark": 2,
+                "description": "creates a data structure of unique words, or a process for verifying  and counting them"
+            },
+            {
+                "mark": 1,
+                "description": "returns the # of unique words"
+            }
+        ]
+    },
+    "kWords()": {
+        "total": 5,
+        "contents": [{
+                "mark": 2,
+                "description": "loads and prepares the text for processing (no punctuation, no cases, unique words only or ensures uniqueness during the process)"
+            },
+            {
+                "mark": 1,
+                "description": "iterates over each unique word"
+            },
+            {
+                "mark": 1,
+                "description": "correct comparison of a word starting with the key letter"
+            },
+            {
+                "mark": 1,
+                "description": "correct construction and return of a list of all words that start with the given letter"
+            }
+        ]
+    },
+    "longestWord()": {
+        "total": 5,
+        "contents": [{
+                "mark": 2,
+                "description": "loads and prepares the text (remove punctuation, split)"
+            },
+            {
+                "mark": 1,
+                "description": "iterates over all words to find the largest"
+            },
+            {
+                "mark": 1,
+                "description": "correct comparison of word lengths"
+            },
+            {
+                "mark": 1,
+                "description": "correctly store (and eventually return) the longest-so-far word"
+            }
+        ]
+    },
+    "writeLines()": {
+        "total": 4,
+        "contents": [{
+                "mark": 1,
+                "description": "opens a file for write mode"
+            },
+            {
+                "mark": 1,
+                "description": "writes each element in the list to the given file"
+            },
+            {
+                "mark": 1,
+                "description": "writes each element on a new line"
+            },
+            {
+                "mark": 1,
+                "description": "closes the file"
+            }
+        ]
+    },
+    "reverseFile()": {
+        "total": 3,
+        "contents": [{
+                "mark": 1,
+                "description": "loads and prepares the text into individual lines"
+            },
+            {
+                "mark": 1,
+                "description": "reverses the order of the lines"
+            },
+            {
+                "mark": 1,
+                "description": "writes the lines to the file \"reversed_\"+inputFilename"
+            }
+        ]
+    },
+    "followsWord()": {
+        "total": 3,
+        "contents": [{
+                "mark": 0.5,
+                "description": "loads and prepares the text for processing (no punctuation, no cases, split into words)"
+            },
+            {
+                "mark": 1,
+                "description": "finds the keyword and correctly indexes the \"next\" word"
+            },
+            {
+                "mark": 1,
+                "description": "only adds next words if they're unique"
+            },
+            {
+                "mark": 0.5,
+                "description": "special case for last word or stop the loop one step earlier"
+            }
+        ]
+    },
+    "Documentation": {
+        "total": 5,
+        "contents": [{
+                "mark": 1,
+                "description": "student name and # at the top of each file"
+            },
+            {
+                "mark": 1,
+                "description": "students should use whitespace to separate meaningful blocks of code"
+            },
+            {
+                "mark": 1,
+                "description": "every function should have a doc-string or comment describing its purpose (except maybe main())"
+            },
+            {
+                "mark": 1,
+                "description": "meaningful variable names should be used"
+            },
+            {
+                "mark": 1,
+                "description": "additional comments for meaningful parts of the code or tricky lines are nice as well"
+            }
+        ]
+    },
+    "Total": 46
+}

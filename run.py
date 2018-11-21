@@ -46,10 +46,13 @@ def marking():
     file_dir = FROM_UPLOADS(name.replace(" ", "-"))
     file_list = [Path(p) for p in glob(f"{file_dir}/*.py")]
 
+    out = execute_files(file_list)
+    """
     try:
         out = execute_files(file_list)
     except Exception as e:
-        return f"ERR: {e.with_traceback(e.__traceback__)}"
+        return f"ERR HERE: {e.with_traceback(e.__traceback__)}"
+    """
 
     if not out:
         return f"Empty output: {file_list}"
