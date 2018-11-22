@@ -27,8 +27,16 @@
     }
   },
   "main": "public/electron.js",
+  "proxy": {
+    "/*":{
+      "target": "http://0.0.0.0:5000",
+      "secure":false,
+      "changeOrigin": true
+    }
+  },
   "homepage": "./",
   "scripts": {
+    "run-server": "python server/manage.py server",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",
@@ -36,6 +44,6 @@
     "electron-build": "electron-builder",
     "release": "yarn react-build && electron-builder --publish=always",
     "build": "yarn react-build && yarn electron-build",
-    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\" \"python server/manage.py server \" "
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
   }
 }

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import UploadForm from './Home';
 
-const {app} = window.require('electron').remote;
+// const {app} = window.require('electron').remote;
 
 class App extends Component {
   render() {
@@ -14,10 +14,6 @@ class App extends Component {
         </div>
 
         <UploadForm/>
-
-        <form method="POST" encType="multipart/form-data" action="localhost:5000/upload">
-
-        </form>
       </div>
     );
   }

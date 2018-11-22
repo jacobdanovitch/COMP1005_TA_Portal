@@ -22,6 +22,7 @@ class DevConfig(Config):
 
     CACHE_TYPE = 'null'
     ASSETS_DEBUG = True
+    # CORS_HEADERS = 'Content-Type'
 
 
 class TestConfig(Config):
