@@ -9,8 +9,10 @@
     "cross-env": "5.1.6",
     "electron-is-dev": "0.3.0",
     "electron-log": "^2.2.6",
+    "filepond": "^3.3.2",
     "react": "16.4.0",
     "react-dom": "16.4.0",
+    "react-filepond": "^5.0.0",
     "update-electron-app": "^1.2.0"
   },
   "devDependencies": {
@@ -28,9 +30,9 @@
   },
   "main": "public/electron.js",
   "proxy": {
-    "/*":{
+    "/*": {
       "target": "http://0.0.0.0:5000",
-      "secure":false,
+      "secure": false,
       "changeOrigin": true
     }
   },

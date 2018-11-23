@@ -22,13 +22,16 @@ def after_request(response):
 @main.route('/upload',methods=['POST', 'OPTIONS'])
 # @cross_origin
 def upload():
-    uploads = request.files.getlist("file")
+    uploads = request.files.getlist("filepond")
     if not uploads:
-        raise FileNotFoundError("No file was uploaded.")
+        raise FileNotFoundError(f"No file was uploaded. {request.files[0]}")
 
+    print("File uploaded successfully.")
     print(str(uploads), file=stderr)
     f = FileUpload(uploads[0], "~/tmp")
-    return f.file_list[0].open().read()
+    print("File successfully processed.")
+    return jsonify(f.file_list[0].open().read())
+    
 
 @main.route('/test', )
 def test():

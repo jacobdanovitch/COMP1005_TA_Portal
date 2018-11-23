@@ -1,32 +1,43 @@
-import React from 'react'
+import React, {Component } from 'react'
+import { FilePond, File } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
 
-class UploadForm extends React.Component {
+class UploadForm extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            // Set initial files
+            files: []
+        };
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log(this.state);
+    }
+    
     render() {
         return (
-            <form method="post" encType="multipart/form-data" action="/upload">
+            <div>
+                <FilePond
+                    server="/upload"
+                    onupdatefiles={(fileItems) => { 
+                        this.setState({ files: fileItems.map(fileItem => fileItem.file) }); }}>
+                    
+                    {this.state.files.map(file => (
+                        <File key={file} src={file} origin="local" />
+                    ))}
+                </FilePond>
+
+
                 <div className="ui placeholder segment">
                     <div className="ui icon header">
                         <i className="archive icon"/>
                         <p>Upload the zip file with the student's assignment submission.</p>
                         <p>Make sure it contains files [a1_p1.py, a1_p2.py ..].</p>
                     </div>
-                    <div className="inline">
-                        <input type="submit" className="ui primary button"/>
-
-                        <label htmlFor="file" className="ui icon button">
-                            <i className="file archive icon"/>
-                            Upload zip file
-                        </label>
-                        <input
-                            type="file"
-                            name="file"
-                            id="file"
-                            style={{
-                            display: "none"
-                        }}></input>
-                    </div>
                 </div>
-            </form>
+            </div>
         )
     }
 }

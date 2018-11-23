@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import UploadForm from './Home';
+import FileOutput from './Marking'
 
 // const {app} = window.require('electron').remote;
 
@@ -14,6 +15,7 @@ class App extends Component {
         </div>
 
         <UploadForm/>
+        <FileOutput />
       </div>
     );
   }
